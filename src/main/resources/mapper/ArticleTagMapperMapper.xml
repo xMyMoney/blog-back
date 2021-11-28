@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zwx.blogback.dao.ArticleTagMapperMapper">
+
+    <delete id="delByTagId">
+        delete from article_tag_mapper where tag_id = #{tagId}
+    </delete>
+    <delete id="delByArticleIdAndTagId">
+        delete from article_tag_mapper where article_id = #{articleId} and tag_id = #{tagId}
+    </delete>
+    <select id="findByArticleIdAndTagId" resultType="java.lang.Integer">
+        select ifnull(
+                       (select 1 from article_tag_mapper where article_id = #{articleId} and tag_id = #{tagId} limit 1),0)
+    </select>
+    <select id="findTagListByArticleId" resultType="java.lang.Integer">
+        select tag_id from article_tag_mapper where article_id = #{articleId}
+    </select>
+</mapper>

@@ -1,0 +1,21 @@
+spring:
+  application:
+    name: blog-back
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/codepig_blog?serverTimezone=UTC&useUnicode=true&characterEncoding=utf-8
+    username: root
+    password: 123456
+server:
+  port: 8080
+mybatis-plus:
+  mapper-locations: classpath:/mapper/*.xml
+  configuration:
+    map-underscore-to-camel-case: true
+alicould:
+  access-id: LTAI5tBCc9Gw92pC6xji5g1e
+  secret-id: ylAvh3JlgzE3XaRgAMBNbOq9z9H5pq
+  bucket-name: pig-blog
+  endpoint: oss-cn-guangzhou.aliyuncs.com
+
+

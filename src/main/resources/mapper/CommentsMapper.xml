@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zwx.blogback.dao.CommentsMapper">
+
+    <select id="countByStatusInteger" resultType="java.lang.Integer">
+        select count(status) from comments where status = #{status}
+    </select>
+    <select id="getParentList" resultType="com.zwx.blogback.model.Comments">
+        select * from comments where article_id = #{articleId} and parent_id = 0
+    </select>
+    <select id="getChildrenList" resultType="com.zwx.blogback.model.Comments">
+        select * from  comments where article_id = #{articleId} and
+            id in (select id from comments where parent_id = #{parentId})
+    </select>
+</mapper>

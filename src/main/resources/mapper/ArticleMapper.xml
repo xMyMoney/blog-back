@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zwx.blogback.dao.ArticleMapper">
+    <update id="updateCategoryId">
+        update article set category_id = 1 where category_id = #{categoryId}
+    </update>
+
+
+    <select id="selectPreOrNextArticleById" resultType="com.zwx.blogback.model.res.ResSimpleArticle">
+
+
+    </select>
+    <select id="selectPreArticleById" resultType="com.zwx.blogback.model.res.ResSimpleArticle">
+        select * from article where status = 0
+                                and publish_time > (select publish_time from article where id = #{id})
+        order by publish_time asc limit 1
+    </select>
+    <select id="selectNextArticleById" resultType="com.zwx.blogback.model.res.ResSimpleArticle">
+        select * from article where status = 0
+                                and publish_time &lt; (select publish_time from article where id = #{id})
+        order by publish_time desc limit 1
+    </select>
+
+    <select id="findArticlesByTagId" resultType="com.zwx.blogback.model.Article">
+        select * from article
+        where id in(
+            select article_id from article_tag_mapper where tag_id = #{tagId}
+        )order by publish_time desc
+    </select>
+
+    <select id="countByStatusInteger" resultType="java.lang.Integer">
+        select count(status) from article where status = #{status}
+    </select>
+
+    <select id="getLatestId" resultType="java.lang.Integer">
+        select id from article order by id desc limit 1
+    </select>
+
+    <select id="setStatus" resultType="java.lang.Integer">
+        update article set status = 1 where id = #{articleId}
+    </select>
+</mapper>
