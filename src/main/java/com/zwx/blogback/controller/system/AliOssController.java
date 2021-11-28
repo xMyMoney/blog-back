@@ -21,9 +21,9 @@ import java.util.Map;
 @RequestMapping("/token")
 public class AliOssController {
 
-    private String accessId = "LTAI5tBCc9Gw92pC6xji5g1e";
-    private String secretId = "ylAvh3JlgzE3XaRgAMBNbOq9z9H5pq";
-    private String endpoint = "oss-cn-guangzhou.aliyuncs.com";
+    private String accessId = "*";
+    private String secretId = "*";
+    private String endpoint = "*";
     private String bucketName = "pig-blog";
 
     private String dir = "blog-file/img/";

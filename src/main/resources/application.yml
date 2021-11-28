@@ -13,9 +13,9 @@ mybatis-plus:
   configuration:
     map-underscore-to-camel-case: true
 alicould:
-  access-id: LTAI5tBCc9Gw92pC6xji5g1e
-  secret-id: ylAvh3JlgzE3XaRgAMBNbOq9z9H5pq
+  access-id: *
+  secret-id: *
   bucket-name: pig-blog
-  endpoint: oss-cn-guangzhou.aliyuncs.com
+  endpoint: *
 
 
