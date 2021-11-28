@@ -2,7 +2,7 @@ package com.zwx.blogback.model.common;
 
 public class RespBean {
     private Integer code;
-    private String message;
+    private String msg;
     private Object data;
 
     public static RespBean build() {
@@ -13,12 +13,20 @@ public class RespBean {
         return new RespBean(200, msg, null);
     }
 
+    public static RespBean ok(Integer code,String msg) {
+        return new RespBean(code, msg, null);
+    }
+
     public static RespBean ok(String msg, Object obj) {
         return new RespBean(200, msg, obj);
     }
 
     public static RespBean error(String msg) {
         return new RespBean(500, msg, null);
+    }
+
+    public static RespBean error(Integer code,String msg) {
+        return new RespBean(code, msg, null);
     }
 
     public static RespBean error(String msg, Object obj) {
@@ -28,9 +36,9 @@ public class RespBean {
     private RespBean() {
     }
 
-    private RespBean(Integer code, String message, Object obj) {
+    private RespBean(Integer code, String msg, Object obj) {
         this.code = code;
-        this.message = message;
+        this.msg = msg;
         this.data = obj;
     }
 
@@ -43,12 +51,12 @@ public class RespBean {
         return this;
     }
 
-    public String getMessage() {
-        return message;
+    public String getMsg() {
+        return msg;
     }
 
-    public RespBean setMessage(String message) {
-        this.message = message;
+    public RespBean setMsg(String msg) {
+        this.msg = msg;
         return this;
     }
 

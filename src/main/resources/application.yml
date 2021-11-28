@@ -12,10 +12,12 @@ mybatis-plus:
   mapper-locations: classpath:/mapper/*.xml
   configuration:
     map-underscore-to-camel-case: true
-alicould:
-  access-id: *
-  secret-id: *
+ali-cloud:
+  access-id: LTAI5tBCc9Gw92pC6xji5g1e
+  secret-id: ylAvh3JlgzE3XaRgAMBNbOq9z9H5pq
   bucket-name: pig-blog
-  endpoint: *
+  endpoint: oss-cn-guangzhou.aliyuncs.com
+  dir: blog-file/img/
+  host: https://pig-blog.oss-cn-guangzhou.aliyuncs.com
 
 

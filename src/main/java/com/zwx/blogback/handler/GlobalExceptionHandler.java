@@ -20,7 +20,7 @@ public class GlobalExceptionHandler {
      */
     @ExceptionHandler(Exception.class)
     public RespBean ExceptionHandler(Exception e) {
-        log.error(e.getMessage());
+        e.printStackTrace();
         return RespBean.error("系统出错");
     }
 
@@ -34,6 +34,6 @@ public class GlobalExceptionHandler {
         if(!StringUtils.isBlank(e.getLocalizedMessage())) {
             return RespBean.error("操作异常");
         }
-        return RespBean.error(e.getMsg());
+        return RespBean.error(e.getCode(),e.getMsg());
     }
 }
