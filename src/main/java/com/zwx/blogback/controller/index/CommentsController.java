@@ -33,9 +33,8 @@ public class CommentsController {
 
     @PostMapping
     public RespBean addComments(Comments comment) {
-        System.out.println(comment);
         commentsService.save(comment);
-        return null;
+        return RespBean.ok("评论成功");
     }
 
 }

@@ -97,6 +97,11 @@ public class Article implements Serializable {
     public Article() {
     }
 
+    public Article(Integer id, Integer pageview) {
+        this.id = id;
+        this.pageview = pageview;
+    }
+
     public Article(Integer id, String title, String content, String htmlContent, String cover, String subMessage, Boolean isEncrypt) {
         this.id = id;
         this.title = title;

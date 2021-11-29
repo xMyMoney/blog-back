@@ -68,7 +68,8 @@ public class ArticleServiceImpl extends ServiceImpl<ArticleMapper, Article> impl
         //前后文章
         ResSimpleArticle preArticle = articleMapper.selectPreArticleById(article.getId());
         ResSimpleArticle nextArticle = articleMapper.selectNextArticleById(article.getId());
-
+        //更新阅读量
+        this.updateById(new Article(article.getId(),article.getPageview() + 1));
         return new ResDetailArticleInfo(article,category,tags,new ResArticleGuide(preArticle,nextArticle));
     }
 

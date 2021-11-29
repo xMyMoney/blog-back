@@ -19,4 +19,11 @@ public class SysCommentController {
     public RespBean getList() {
         return RespBean.ok("查找成功",new PageBean<>(commentsService.list()));
     }
+
+    @GetMapping
+    public RespBean getComments(Integer articleId) {
+        return RespBean.ok("查找成功",commentsService.getComments(articleId));
+    }
+
+
 }
